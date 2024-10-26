@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Project</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/homework/html_project/style.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav aria-label="Primary navigation" class="menu">
+        <a href="/">Home</a>
+        <a href="/">About</a>
+        <a href="/">Contact</a>
+      </nav>
+      <h1>IT Team Members</h1>
+    </header>
+    <main>
+
+      <form id="new_member" name="form" method="post">
+        <h2>Add New Member</h2>
+        <label>
+          First Name
+          <br />
+          <br />
+          <input
+            type="text"
+            name="new_member"
+            id="first_name"
+            placeholder="John"
+            required
+          />
+        </label>
+        <br />
+        <br />
+        <label>
+          Last Name
+          <br />
+          <br />
+          <input
+            type="text"
+            name="new_member"
+            id="last_name"
+            placeholder="Doe"
+            required
+          />
+        </label>
+        <br />
+        <br />
+        <label>
+          Role
+          <br />
+          <br />
+          <input
+            type="text"
+            name="new_member"
+            id="job_title"
+            placeholder="Developer"
+            required
+          />
+        </label>
+        <br />
+        <br />
+        <label>
+          Email
+          <br />
+          <br />
+          <input
+            type="email"
+            name="new_member"
+            id="email"
+            placeholder="johndoe@gmail.com"
+            required
+          />
+        </label>
+        <br />
+        <button type="submit">Add Member</button>
+      </form>
+      <section>
+        <h2>Team Members</h2>
+        <table border="1">
+          <thead>
+            <tr>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Role</th>
+              <th scope="col">Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>John</th>
+              <td>Doe</td>
+              <td>Developer</td>
+              <td>johndoe@npower.net</td>
+            </tr>
+            <tr>
+              <td>Jane</th>
+              <td>Doe</td>
+              <td>Designer</td>
+              <td>janedoe@npower.net</td>
+            </tr>
+            <tr>
+              <td>Mike</th>
+              <td>Smith</td>
+              <td>Tester</td>
+              <td>miketester@npower.net</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+    <footer>
+      <p>NPower &#169; 2024</p>
+    </footer>
+  </body>
+</html>
