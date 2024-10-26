@@ -6,7 +6,9 @@
   --m-xs: 0.25em;
   --m-sm: 0.5em;
   --m-md: 1em;
-  --border: rgb(160, 160, 160);
+  --border: rgba(255, 255, 255, 0.1);
+  --border-r: 0.25em;
+  --hover: blue;
 }
 
 /* styles reset */
@@ -19,9 +21,12 @@
   padding: 0;
   border-spacing: 0;
   border-collapse: collapse;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
   font-weight: normal;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
 }
 
 br {
@@ -30,7 +35,8 @@ br {
 
 body {
   display: flex;
-  background-color: #f6f6f8;
+  height: 105svh;
+  background-color: #000;
   flex-direction: column;
   & > :first-child,
   > :last-child {
@@ -38,6 +44,9 @@ body {
   }
   & > * + * {
     max-width: 60rem;
+  }
+  & h1, h2 {
+    color: rgba(255, 255, 255, 1);
   }
   & h1 {
     font-weight: bolder;
@@ -50,19 +59,18 @@ body {
 
 header {
   display: flex;
+  width: 100%;
   flex-direction: row-reverse;
   align-items: center;
-  justify-content: center;
   gap: var(--p-md);
   & h1 {
-    margin: 0 0 auto 0;
     width: 100%;
   }
 }
 
 main {
   margin: auto;
-  flex-grow: 1;
+  padding: var(--p-lg) var(--p-md);
   & > * {
     padding: var(--p-md);
   }
@@ -72,6 +80,12 @@ section > :first-child {
   padding-bottom: var(--p-md);
 }
 
+section {
+  border: 1px solid var(--border);
+  border-radius: 0 0 var(--border-r) var(--border-r);
+  margin-top: -1px;
+}
+
 nav {
   display: flex;
   gap: var(--p-sm);
@@ -79,40 +93,52 @@ nav {
 
 form {
   display: grid;
-  background-color: #fff;
-  border-radius: var(--m-xs);
+  background-color: #090909;
+  border-radius: var(--border-r) var(--border-r) 0 0;
+  border: 1px solid var(--border);
   grid-template-columns: repeat(2, 1fr);
   gap: var(--p-md);
   & h1,
   h2,
-  h3 {
-    grid-column: span 2;
-  }
-  & label:nth-child(6),
-  label:nth-child(n + 6),
+  h3,
   button {
     grid-column: span 2;
-  }
-  & button {
-    padding: var(--p-xs);
-  }
-  & input {
-    padding: var(--p-sm);
-    margin-top: var(--m-sm);
-    border: 1px solid var(--border);
-    border-radius: var(--m-xs);
-    width: 100%;
-    transition: border 100ms ease-in;
-    &:hover {
-      border: 1px solid #000;
-    }
   }
   & label {
     display: block;
     font-weight: bold;
   }
+  & > label:nth-last-child(-n + 6) {
+    grid-column: span 2;
+  }
+  & input {
+    background-color: #101010;
+    padding: var(--p-sm);
+    margin-top: var(--m-sm);
+    border: 1px solid var(--border);
+    border-radius: var(--border-r);
+    width: 100%;
+    transition: border 100ms ease-in;
+    &:hover {
+      border: 1px solid var(--hover);
+    }
+  }
 }
 
+button {
+  padding: var(--p-xs);
+  background-color: var(--hover);
+  font-size: 1.125rem;
+  color: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--border-r);
+  cursor: pointer;
+  height: 50px;
+  &:hover {
+    background-color: var(--hover);
+    opacity: 0.8;
+  }
+}
 table {
   text-align: left;
   border: 1px solid var(--border);
@@ -122,10 +148,10 @@ table {
   }
   & thead th {
     border-color: var(--border) transparent;
-    padding: var(--p-xs);
+    padding: var(--p-md);
   }
   & tr > td {
     border-color: transparent transparent var(--border) transparent;
-    padding: var(--p-xs);
+    padding: var(--p-md);
   }
 }
